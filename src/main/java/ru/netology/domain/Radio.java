@@ -8,53 +8,95 @@ public class Radio {
     private int maxVolume = 10;
     private int minVolume = 0;
 
+
     public int getCurrentStation() {
         return currentStation;
-    }
-
-    public void setCurrentStation(int currentStation) {
-        this.currentStation = currentStation;
     }
 
     public int getMaxStation() {
         return maxStation;
     }
 
-    public void setMaxStation(int maxStation) {
-        this.maxStation = maxStation;
+    public void setCurrentNumberStation(int currentStation) {
+//               если текущая выше макс
+        if (currentStation > maxStation) {
+            this.currentStation = maxStation;
+            return;
+        }
+
+//        если текущая ниже мин
+        if (currentStation < minStation) {
+            this.currentStation = minStation;
+            return;
+        }
+
+        this.currentStation = currentStation;
     }
 
-    public int getMinStation() {
-        return minStation;
+    public void nextStation() {
+        if (currentStation == maxStation) {
+            currentStation = minStation;
+            return;
+        }
+        currentStation++;
     }
 
-    public void setMinStation(int minStation) {
-        this.minStation = minStation;
+    public void prevStation() {
+        if (currentStation == minStation) {
+            currentStation = maxStation;
+
+            return;
+        }
+        currentStation--;
     }
+
 
     public int getCurrentVolume() {
         return currentVolume;
-    }
-
-    public void setCurrentVolume(int currentVolume) {
-        this.currentVolume = currentVolume;
     }
 
     public int getMaxVolume() {
         return maxVolume;
     }
 
-    public void setMaxVolume(int maxVolume) {
-        this.maxVolume = maxVolume;
-    }
 
     public int getMinVolume() {
         return minVolume;
     }
 
-    public void setMinVolume(int minVolume) {
-        this.minVolume = minVolume;
+
+    public void setCurrentVolume(int currentVolume) {
+        if (currentVolume < minVolume) {
+            this.currentVolume = minVolume;
+            return;
+        }
+        if (currentVolume > maxVolume) {
+            this.currentVolume = maxVolume;
+            return;
+        }
+        this.currentVolume = currentVolume;
+    }
+
+
+    public void moreSound() {
+//        если текущ = макс увеличить на 1
+        if (currentVolume == maxVolume)
+            return;
+        currentVolume++;
+    }
+
+    public void lessSound() {
+//        если текущ = мин уменьшить на 1
+        if (currentVolume <= minVolume)
+            return;
+        currentVolume--;
     }
 
 
 }
+
+
+
+
+
+
