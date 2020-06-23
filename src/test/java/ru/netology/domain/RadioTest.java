@@ -12,7 +12,8 @@ class RadioTest {
 
         radio.setCurrentNumberStation(10);
         radio.nextStation();
-        assertEquals(0, radio.getCurrentStation());
+        radio.nextStation();
+        assertEquals(1, radio.getCurrentStation());
     }
 
     @Test
@@ -20,7 +21,8 @@ class RadioTest {
 
         radio.setCurrentNumberStation(0);
         radio.prevStation();
-        assertEquals(10, radio.getCurrentStation());
+        radio.prevStation();
+        assertEquals(9, radio.getCurrentStation());
     }
 
     @Test
@@ -43,7 +45,7 @@ class RadioTest {
     @Test
     void setCurrentStationMoreMaxStation() {
 
-        radio.setCurrentNumberStation(10);
+        radio.setCurrentNumberStation(11);
 
         assertEquals(radio.getMaxStation(), radio.getCurrentStation());
     }
@@ -51,7 +53,7 @@ class RadioTest {
     @Test
     void setCurrentStationEqualsMaxStation() {
 
-        radio.setCurrentNumberStation(13);
+        radio.setCurrentNumberStation(10);
 
         assertEquals(radio.getMaxStation(), radio.getCurrentStation());
     }
@@ -60,7 +62,7 @@ class RadioTest {
     void setCurrentAboveMaxStation() {
 
         radio.setCurrentNumberStation(11);
-        radio.getCurrentStation();
+
         assertEquals(10, radio.getCurrentStation());
     }
 
@@ -68,15 +70,15 @@ class RadioTest {
     void setCurrentLessMinStation() {
 
         radio.setCurrentNumberStation(-1);
-        radio.getCurrentStation();
-        assertEquals(0, radio.getCurrentStation());
+
+        assertEquals(radio.getMinStation(), radio.getCurrentStation());
     }
 
     @Test
     void setCurrentLessMinSound() {
 
         radio.setCurrentNumberStation(-1);
-        radio.getCurrentStation();
+
         assertEquals(0, radio.getCurrentStation());
     }
 
@@ -123,7 +125,7 @@ class RadioTest {
     @Test
     void IncreaseCurrentVolume() {
 
-        radio.setCurrentVolume(9);
+        radio.setCurrentVolume(101);
         radio.moreSound();
         assertEquals(100, radio.getMaxVolume());
     }
