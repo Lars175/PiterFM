@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class RadioTest {
-    Radio radio = new Radio(10, 0, 100, 0);
+    Radio radio = new Radio(7, 10, 0, 67, 100, 0);
 
     @Test
     void nextCurrentStation() {
@@ -127,6 +127,16 @@ class RadioTest {
 
         radio.setCurrentVolume(101);
         radio.moreSound();
+
         assertEquals(100, radio.getMaxVolume());
+
     }
+    @Test
+    void currentVolum() {
+
+        radio.setCurrentVolume(5);
+        radio.moreSound();
+        assertEquals(6, radio.getCurrentVolume());
+    }
+
 }
