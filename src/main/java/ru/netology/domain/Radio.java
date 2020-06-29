@@ -4,16 +4,19 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+
 public class Radio {
     private int currentStation;
-    private int maxStation = 10;
-    private int minStation = 0;
+    private int maxStation;
+    private int minStation;
     private int currentVolume;
-    private int maxVolume = 100;
-    private int minVolume = 0;
+    private int maxVolume;
+    private int minVolume;
+
 
     public void setCurrentNumberStation(int currentStation) {
 
