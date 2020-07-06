@@ -1,30 +1,38 @@
 package ru.netology.domain;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+
 public class Radio {
     private int currentStation;
-    private int maxStation = 9;
-    private int minStation = 0;
+    private int maxStation = 10;
+    private int minStation;
     private int currentVolume;
-    private int maxVolume = 10;
-    private int minVolume = 0;
+    private int maxVolume;
+    private int minVolume;
 
-
-    public int getCurrentStation() {
-        return currentStation;
+    public Radio(int currentStation, int minStation, int currentVolume, int maxVolume, int minVolume) {
+        this.currentStation = currentStation;
+        this.minStation = minStation;
+        this.currentVolume = currentVolume;
+        this.maxVolume = maxVolume;
+        this.minVolume = minVolume;
     }
 
-    public int getMaxStation() {
-        return maxStation;
-    }
 
     public void setCurrentNumberStation(int currentStation) {
-//               если текущая выше макс
+
         if (currentStation > maxStation) {
             this.currentStation = maxStation;
             return;
         }
 
-//        если текущая ниже мин
         if (currentStation < minStation) {
             this.currentStation = minStation;
             return;
@@ -34,6 +42,7 @@ public class Radio {
     }
 
     public void nextStation() {
+
         if (currentStation == maxStation) {
             currentStation = minStation;
             return;
@@ -51,20 +60,6 @@ public class Radio {
     }
 
 
-    public int getCurrentVolume() {
-        return currentVolume;
-    }
-
-    public int getMaxVolume() {
-        return maxVolume;
-    }
-
-
-    public int getMinVolume() {
-        return minVolume;
-    }
-
-
     public void setCurrentVolume(int currentVolume) {
         if (currentVolume < minVolume) {
             this.currentVolume = minVolume;
@@ -79,19 +74,18 @@ public class Radio {
 
 
     public void moreSound() {
-//        если текущ = макс увеличить на 1
+
         if (currentVolume == maxVolume)
             return;
         currentVolume++;
     }
 
     public void lessSound() {
-//        если текущ = мин уменьшить на 1
+
         if (currentVolume <= minVolume)
             return;
         currentVolume--;
     }
-
 
 }
 
