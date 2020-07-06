@@ -11,11 +11,19 @@ import lombok.NoArgsConstructor;
 
 public class Radio {
     private int currentStation;
-    private int maxStation;
+    private int maxStation = 10;
     private int minStation;
     private int currentVolume;
     private int maxVolume;
     private int minVolume;
+
+    public Radio(int currentStation, int minStation, int currentVolume, int maxVolume, int minVolume) {
+        this.currentStation = currentStation;
+        this.minStation = minStation;
+        this.currentVolume = currentVolume;
+        this.maxVolume = maxVolume;
+        this.minVolume = minVolume;
+    }
 
 
     public void setCurrentNumberStation(int currentStation) {

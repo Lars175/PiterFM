@@ -9,7 +9,7 @@ class RadioTest {
 
     @Test
     void nextCurrentStation() {
-        Radio radio = new Radio(7, 10, 0, 67, 100, 0);
+        Radio radio = new Radio(7, 0, 67, 100, 0);
         radio.setCurrentNumberStation(10);
         radio.nextStation();
         radio.nextStation();
@@ -18,7 +18,7 @@ class RadioTest {
 
     @Test
     void prevCurrentStation() {
-        Radio radio = new Radio(7, 10, 0, 67, 100, 0);
+        Radio radio = new Radio(7, 0, 67, 100, 0);
         radio.setCurrentNumberStation(0);
         radio.prevStation();
         radio.prevStation();
@@ -35,7 +35,7 @@ class RadioTest {
 
     @Test
     void lessSound() {
-        Radio radio = new Radio(7, 10, 0, 67, 100, 0);
+        Radio radio = new Radio(7, 0, 67, 100, 0);
 //        radio.setCurrentVolume(100);
 
         assertEquals(100, radio.getMaxVolume());
@@ -60,7 +60,7 @@ class RadioTest {
 
     @Test
     void setCurrentAboveMaxStation() {
-        Radio radio = new Radio(7, 10, 0, 67, 100, 0);
+        Radio radio = new Radio(7,  0, 67, 100, 0);
         radio.setCurrentNumberStation(11);
 
         assertEquals(10, radio.getCurrentStation());
@@ -92,7 +92,7 @@ class RadioTest {
 
     @Test
     void setCurrentAboveMaxVolume() {
-        Radio radio = new Radio(7, 10, 0, 67, 100, 0);
+        Radio radio = new Radio(7, 0, 67, 100, 0);
         radio.setCurrentVolume(101);
 
         assertEquals(100, radio.getMaxVolume());
@@ -100,7 +100,7 @@ class RadioTest {
 
     @Test
     void nextCurrentVolume() {
-        Radio radio = new Radio(7, 10, 0, 67, 100, 0);
+        Radio radio = new Radio(7,  0, 67, 100, 0);
         radio.setCurrentVolume(100);
         radio.moreSound();
         assertEquals(100, radio.getMaxVolume());
@@ -108,7 +108,7 @@ class RadioTest {
 
     @Test
     void prevCurrentVolume() {
-        Radio radio = new Radio(7, 10, 0, 67, 100, 0);
+        Radio radio = new Radio(7,  0, 67, 100, 0);
         radio.setCurrentVolume(6);
         radio.lessSound();
         assertEquals(0, radio.getMinVolume());
@@ -124,7 +124,7 @@ class RadioTest {
 
     @Test
     void IncreaseCurrentVolume() {
-        Radio radio = new Radio(7, 10, 0, 67, 100, 0);
+        Radio radio = new Radio(7,  0, 67, 100, 0);
         radio.setCurrentVolume(101);
         radio.moreSound();
 
@@ -134,7 +134,7 @@ class RadioTest {
 
     @Test
     void currentVolum() {
-        Radio radio = new Radio(7, 10, 0, 67, 100, 0);
+        Radio radio = new Radio(7,  0, 67, 100, 0);
         radio.setCurrentVolume(5);
         radio.moreSound();
         assertEquals(6, radio.getCurrentVolume());
